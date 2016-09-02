@@ -5,6 +5,9 @@ public class QuickUnionUF {
 	
 	public QuickUnionUF(int N){
 		array = new int[N];
+		for(int i=0; i<N; i++){
+			array[i] = i;
+		}
 	}
 	
 	public int Root(int i){
