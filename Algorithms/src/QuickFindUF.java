@@ -1,8 +1,8 @@
 
-public class QuickFind {
+public class QuickFindUF {
 	private int[] array;
 	
-	public QuickFind(int N){
+	public QuickFindUF(int N){
 		array = new int[N];
 		for(int i=0; i<N; i++)
 			array[i] = i;
