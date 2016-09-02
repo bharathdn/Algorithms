@@ -1,9 +1,9 @@
-public class PathCompressionUF {
+public class WeightedQuickUnionPathCompressionUF {
 	
 	private int [] array;
 	private int [] sizeArray;
 	
-	public PathCompressionUF(int N){
+	public WeightedQuickUnionPathCompressionUF(int N){
 		array = new int[N];
 		sizeArray = new int[N]; 
 		for(int i=0; i<N; i++){
