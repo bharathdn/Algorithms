@@ -3,35 +3,35 @@ public class WeightedQuickUnionUF {
 	private int [] array;
 	private int [] sizeArray;
 	
-	public WeightedQuickUnionUF(int N){
+	public WeightedQuickUnionUF(int N) {
 		array = new int[N];
 		sizeArray = new int[N]; 
-		for(int i=0; i<N; i++){
+		for(int i = 0; i < N; i++) {
 			array[i] = i;
 			sizeArray[i] = 1;
 		}
 	}
 	
-	public int Root(int i){
-		while(i != array[i]){
+	public int Root(int i) {
+		while(i != array[i]) {
 			i = array[i];
 		}
 		return i;
 	}
 	
-	public boolean Connected(int x, int y){
+	public boolean Connected(int x, int y) {
 		return (Root(x) == Root(y));
 	}
 	
-	public void Union(int x, int y){
-		if(Connected(x,y))
+	public void Union(int x, int y) {
+		if(Connected(x, y))
 			return;
 		
 		int rootX = Root(x);
 		int rootY = Root(y);
 		
 		// set the tree with largest size (of the two) as parent
-		if(sizeArray[x] > sizeArray[y]){
+		if(sizeArray[x] > sizeArray[y]) {
 			array[rootY] = rootX;
 			sizeArray[rootX] += sizeArray[rootY];
  		}
@@ -40,5 +40,4 @@ public class WeightedQuickUnionUF {
 			sizeArray[rootY] += sizeArray[rootX];
 		}
 	}
-
 }
