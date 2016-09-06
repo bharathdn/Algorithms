@@ -1,6 +1,8 @@
 package stack;
 
-public class GenericArrayStack<Item> {
+import java.util.Iterator;
+
+public class GenericArrayStack<Item> implements Iterable<Item> {
 
     private Item[] stack;
     private int currentSize = 0;
@@ -37,4 +39,19 @@ public class GenericArrayStack<Item> {
          */
     }
     
+    public Iterator<Item> iterator() {
+        return new ReverArrayIterator();
+    }
+    
+    private class ReverArrayIterator implements Iterator<Item> {
+        private int currentIndex = currentSize;
+        
+        public boolean hasNext() {
+            return currentIndex > 0;
+        }
+        
+        public Item next() {
+            return stack[--currentIndex];
+        }
+    }
 }
