@@ -44,7 +44,6 @@ public class GenericArrayStack<Item> implements Iterable<Item> {
     }
     
     private class ReverArrayIterator implements Iterator<Item> {
-        
         private int currentIndex = currentSize;
         
         public boolean hasNext() {
