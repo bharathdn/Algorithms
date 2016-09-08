@@ -1,10 +1,16 @@
 package Sorting;
 
+import java.util.Arrays;
+
+import org.omg.CORBA.INITIALIZE;
+
 public class Quick {
     
     public static void sort(Comparable[] array) {
         /*
-         * code to shuffle the array
+         * code to shuffle the array to guarantee performance
+         * this means, after partitioning, both sides of the partition 
+         * will be in random order
          */
         sort(array, 0, array.length - 1);
     }
@@ -21,7 +27,7 @@ public class Quick {
 
     private static int partition(Comparable[] array, int lo, int hi) {
         int i = lo;
-        int j = hi;
+        int j = hi+1;
         
         while(true) {
             while(less(array[++i], array[lo])) 
@@ -49,5 +55,4 @@ public class Quick {
         a[i] = a[j];
         a[j] = swap;
     }
-    
 }
