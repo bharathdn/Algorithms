@@ -18,7 +18,7 @@ public class LinkedStackOfStrings {
         first = new Node();
         first.item = item;        
         first.next = oldFirst;       
-    }
+    } 
     
     public String pop() {
         String item = first.item;
