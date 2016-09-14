@@ -13,7 +13,7 @@ public class UnorderedMaxPQ<Key extends Comparable<Key>> {
     }
 
     void insert(Key value){
-        priorityQueue[size++] = value; 
+        priorityQueue[size++] = value;
     }
 
     public Key delMax(){
