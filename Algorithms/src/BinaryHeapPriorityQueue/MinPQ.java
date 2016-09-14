@@ -1,11 +1,11 @@
 package BinaryHeapPriorityQueue;
 
-public class MaxPQ<Key extends Comparable<Key>> {
+public class MinPQ<Key extends Comparable<Key>> {
     
     private Key[] priorityQueue;
     private int size;
     
-    public MaxPQ(int capacity) {
+    public MinPQ(int capacity) {
         priorityQueue = (Key[]) new Comparable[capacity + 1];
     }
     
@@ -27,7 +27,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
     
     private void swim(int k){
-        while(k > 1 && less(k/2, k))
+        while(k > 1 && greater(k/2, k))
         {
             exch(k ,k/2);
             k = k/2;
@@ -38,18 +38,18 @@ public class MaxPQ<Key extends Comparable<Key>> {
         while(2 * k <= size){
             int j = 2 * k;
             // check which child is larger
-            if(j < size && less(j, j+1))
+            if(j < size && greater(j, j+1))
                 j++;
-            // exchange if parent is less than largeest of its children
-            if(!less(k, j))
+            // exchange if parent is less than largest of its children
+            if(!greater(k, j))
                 break;
             exch(k, j);
             k = j;
         }
     }
     
-    private boolean less(int a, int b) {
-        return priorityQueue[a].compareTo(priorityQueue[b]) < 0;
+    private boolean greater(int a, int b) {
+        return priorityQueue[b].compareTo(priorityQueue[a]) < 0;
     }
 
     private void exch(int i, int j) {
